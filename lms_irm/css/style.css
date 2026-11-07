@@ -1,0 +1,326 @@
+/* PETTY CASH LEARNING - Modern LMS CSS */
+/* Note: Google Fonts is loaded via high-priority <link> in index.html to avoid @import waterfall */
+
+:root {
+  --primary-blue: #2563EB;
+  --primary-blue-hover: #1D4ED8;
+  --primary-blue-light: #EFF6FF;
+  --primary-purple: #7C3AED;
+  --primary-purple-hover: #6D28D9;
+  --primary-purple-light: #F5F3FF;
+  --accent-yellow: #F59E0B;
+  --accent-yellow-light: #FEF3C7;
+  --accent-green: #10B981;
+  --accent-green-light: #ECFDF5;
+  --accent-red: #EF4444;
+  --accent-red-light: #FEF2F2;
+  --bg-main: #F8FAFC;
+  --text-dark: #0F172A;
+  --text-muted: #64748B;
+  --border-color: #E2E8F0;
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+  --card-shadow-hover: 0 20px 30px -10px rgba(99, 102, 241, 0.12), 0 10px 15px -5px rgba(99, 102, 241, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Gradients */
+.gradient-primary {
+  background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+}
+
+.gradient-hero {
+  background: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.05) 0%, transparent 60%);
+}
+
+.gradient-card-blue {
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+}
+
+.gradient-card-purple {
+  background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
+}
+
+.gradient-card-yellow {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+}
+
+.gradient-card-green {
+  background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+}
+
+/* Card Transitions & Shadows */
+.card-hover-effect {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.btn-bounce {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-bounce:hover {
+  transform: translateY(-2px);
+}
+
+.btn-bounce:active {
+  transform: translateY(1px);
+}
+
+/* Accounting Ledger Styling */
+.ledger-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.ledger-table th {
+  background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%);
+  color: #334155;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 12px 16px;
+  border-bottom: 2px solid #CBD5E1;
+}
+
+.ledger-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #E2E8F0;
+  font-size: 0.875rem;
+}
+
+.ledger-table tr:hover td {
+  background-color: #F8FAFC;
+}
+
+.ledger-double-line {
+  border-top: 1px solid #475569;
+  border-bottom: 3px double #475569 !important;
+}
+
+/* Interactive Elements */
+.tab-active {
+  background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.badge-pulse {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(245, 158, 11, 0);
+  }
+}
+
+/* Floating animation */
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Quiz Option Styling */
+.quiz-option {
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 2px solid #E2E8F0;
+}
+
+.quiz-option:hover:not(.locked) {
+  border-color: #93C5FD;
+  background-color: #EFF6FF;
+  transform: translateX(4px);
+}
+
+.quiz-option.selected {
+  border-color: #7C3AED;
+  background-color: #F5F3FF;
+}
+
+.quiz-option.correct {
+  border-color: #10B981 !important;
+  background-color: #ECFDF5 !important;
+  color: #065F46 !important;
+}
+
+.quiz-option.wrong {
+  border-color: #EF4444 !important;
+  background-color: #FEF2F2 !important;
+  color: #991B1B !important;
+}
+
+/* Matching Drag/Click Item */
+.match-item {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.match-item:hover {
+  transform: scale(1.02);
+}
+
+.match-item.active {
+  border-color: #7C3AED;
+  background-color: #EDE9FE;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.3);
+}
+
+.match-item.matched {
+  border-color: #10B981;
+  background-color: #ECFDF5;
+  color: #047857;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Progress Circular indicator */
+.progress-ring-circle {
+  transition: stroke-dashoffset 0.5s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+/* Toast Notification */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.toast-item {
+  pointer-events: auto;
+  animation: slide-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Voucher & Formal Accounting Document Styling */
+.voucher-paper {
+  background: #FFFFFF;
+  border: 2px solid #334155;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  position: relative;
+}
+
+.voucher-stamp {
+  border: 3px double #EF4444;
+  color: #DC2626;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  transform: rotate(-8deg);
+  opacity: 0.85;
+}
+
+/* Certificate of Completion Styling */
+.cert-border {
+  border: 8px solid #F59E0B;
+  outline: 2px solid #7C3AED;
+  outline-offset: -12px;
+  background: radial-gradient(circle at center, #FFFFFF 0%, #FFFBEB 100%);
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #printable-voucher,
+  #printable-voucher *,
+  #printable-cert,
+  #printable-cert * {
+    visibility: visible;
+  }
+
+  #printable-voucher,
+  #printable-cert {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
